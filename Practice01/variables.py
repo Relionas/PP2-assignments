@@ -3,7 +3,7 @@ a = 10
 print(a)
 
 # Example 2: string variable
-name = "Serzhan"
+name = "Dias"
 print(name)
 
 # Example 3: reassignment
