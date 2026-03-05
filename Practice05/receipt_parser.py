@@ -1,0 +1,52 @@
+import re
+import json
+
+#Read File
+with open("raw.txt", "r", encoding="utf-8") as f:
+    text = f.read()
+
+#Extract Prices
+price_pattern = r'\d+\s?\d*,\d{2}'
+prices = re.findall(price_pattern, text)
+
+# Remove duplicates from "Стоимость" lines if needed
+unique_prices = list(dict.fromkeys(prices))
+
+#Extract Product Names
+product_pattern = r'\d+\.\n(.+)'
+products = re.findall(product_pattern, text)
+
+#Extract Date and Time
+date_pattern = r'\d{2}\.\d{2}\.\d{4}\s\d{2}:\d{2}:\d{2}'
+date_time = re.search(date_pattern, text)
+date_time = date_time.group() if date_time else None
+
+#Extract Payment Method
+payment_pattern = r'Банковская карта'
+payment = re.search(payment_pattern, text)
+payment_method = payment.group() if payment else None
+
+#Extract Total
+total_pattern = r'ИТОГО:\n([\d\s,]+)'
+total_match = re.search(total_pattern, text)
+total = total_match.group(1).strip() if total_match else None
+
+#Convert Prices to Float
+def clean_price(price):
+    return float(price.replace(" ", "").replace(",", "."))
+
+numeric_prices = [clean_price(p) for p in unique_prices]
+
+#Calculate Sum
+calculated_total = sum(numeric_prices)
+
+#Create Structured Output
+data = {
+    "date_time": date_time,
+    "payment_method": payment_method,
+    "total_from_receipt": total,
+    "calculated_total": calculated_total,
+    "products": products
+}
+
+print(json.dumps(data, ensure_ascii=False, indent=4))
