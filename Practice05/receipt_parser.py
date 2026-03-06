@@ -5,7 +5,7 @@ import json
 with open("raw.txt", "r", encoding="utf-8") as f:
     text = f.read()
 
-# Extract Prices (only numbers like 1 200,50 or 150,00)
+# Extract Prices
 price_pattern = r'\d+(?: \d+)*,\d{2}'
 prices = re.findall(price_pattern, text)
 
@@ -49,4 +49,6 @@ data = {
     "products": products
 }
 
-print(json.dumps(data, ensure_ascii=False, indent=4))
+# Write JSON file
+with open("receipt.json", "w", encoding="utf-8") as f:
+    json.dump(data, f, ensure_ascii=False, indent=4)
