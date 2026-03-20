@@ -1,0 +1,5 @@
+Laptop,4
+Mouse,15
+Keyboard,3
+Monitor,5
+Headphones,9
