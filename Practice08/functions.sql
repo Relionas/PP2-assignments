@@ -1,26 +1,34 @@
--- functions.sql
+-- -------------------------------------------------
+-- Function: search_pattern
+-- Returns all phonebook entries matching pattern
+-- -------------------------------------------------
+DROP FUNCTION IF EXISTS search_pattern(TEXT);
 
--- Функция поиска по шаблону
-CREATE OR REPLACE FUNCTION search_pattern(pattern TEXT)
-RETURNS TABLE(id INT, name VARCHAR, phone VARCHAR) AS $$
+CREATE FUNCTION search_pattern(pattern TEXT)
+RETURNS TABLE(id INT, name VARCHAR(100), phone VARCHAR(100)) AS $$
 BEGIN
     RETURN QUERY
-    SELECT id, name, phone
-    FROM phonebook
-    WHERE name ILIKE '%' || pattern || '%'
-       OR phone ILIKE '%' || pattern || '%';
+    SELECT p.id, p.name, p.phone
+    FROM phonebook p
+    WHERE p.name ILIKE '%' || pattern || '%'
+       OR p.phone ILIKE '%' || pattern || '%';
 END;
 $$ LANGUAGE plpgsql;
 
 
--- Функция пагинации
-CREATE OR REPLACE FUNCTION get_paginated(limit INT, offset INT)
-RETURNS TABLE(id INT, name VARCHAR, phone VARCHAR) AS $$
+-- -------------------------------------------------
+-- Function: get_paginated
+-- Returns phonebook entries with pagination
+-- -------------------------------------------------
+DROP FUNCTION IF EXISTS get_paginated(INT, INT);
+
+CREATE FUNCTION get_paginated(limit_val INT, offset_val INT)
+RETURNS TABLE(id INT, name VARCHAR(100), phone VARCHAR(100)) AS $$
 BEGIN
     RETURN QUERY
-    SELECT id, name, phone
-    FROM phonebook
-    ORDER BY id
-    LIMIT limit OFFSET offset;
+    SELECT p.id, p.name, p.phone
+    FROM phonebook p
+    ORDER BY p.id
+    LIMIT limit_val OFFSET offset_val;
 END;
 $$ LANGUAGE plpgsql;
