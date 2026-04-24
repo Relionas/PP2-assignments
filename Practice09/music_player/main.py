@@ -91,7 +91,7 @@ def handle_keys(event):
 # MAIN LOOP
 running = True
 while running:
-    clock.tick(30)
+    clock.tick(30)+
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
