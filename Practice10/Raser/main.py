@@ -29,7 +29,7 @@ game_over = font_large.render("Game Over", True, BLACK)
 
 # Create game window
 DISPLAYSURF = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption("Racer - Serzhan Edition")
+pygame.display.set_caption("Racer - Dias Edition")
 
 # Load and scale background road
 bg_raw = pygame.image.load("images/AnimatedStreet.jpeg")
