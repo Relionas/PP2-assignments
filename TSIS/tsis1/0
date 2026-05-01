@@ -1,0 +1,54 @@
+[
+    {
+        "name": "Temirlan",
+        "surname": "Ospanov",
+        "email": "timos@gmail.com",
+        "birthday": "2000-10-07",
+        "group": "Friend",
+        "phones": [
+            {
+                "phone": "87763210987",
+                "type": "mobile"
+            }
+        ]
+    },
+    {
+        "name": "Dias",
+        "surname": "Mandygulov",
+        "email": "disss@gmail.com",
+        "birthday": "2005-04-12",
+        "group": "Friend",
+        "phones": [
+            {
+                "phone": "87071112233",
+                "type": "mobile"
+            }
+        ]
+    },
+    {
+        "name": "Ruslan",
+        "surname": "Ogay",
+        "email": "ogayrs@mail.com",
+        "birthday": "2004-09-21",
+        "group": "Work",
+        "phones": [
+            {
+                "phone": "87075556677",
+                "type": "home"
+            }
+        ]
+    },
+    {
+        "name": "Zhangabyl",
+        "surname": "NUrasyl",
+        "email": "alizh@gmail.com",
+        "birthday": "2008-01-10",
+        "group": "Family",
+        "phones": [
+            {
+                "phone": "87078889900",
+                "type": "work"
+            }
+        ]
+    }
+]

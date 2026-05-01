@@ -1,0 +1,41 @@
+[
+    {
+        "name": "Serzhan",
+        "surname": "Sultanbek",
+        "email": "srzhn@gmail.com",
+        "birthday": "2005-04-12",
+        "group": "Friend",
+        "phones": [
+            {
+                "phone": "87071112233",
+                "type": "mobile"
+            }
+        ]
+    },
+    {
+        "name": "Yertay",
+        "surname": "Zholdybek",
+        "email": "zhdyy@mail.com",
+        "birthday": "2004-09-21",
+        "group": "Work",
+        "phones": [
+            {
+                "phone": "87075556677",
+                "type": "home"
+            }
+        ]
+    },
+    {
+        "name": "Alizhan",
+        "surname": "Sultanbek",
+        "email": "alizh@gmail.com",
+        "birthday": "2003-01-10",
+        "group": "Family",
+        "phones": [
+            {
+                "phone": "87078889900",
+                "type": "work"
+            }
+        ]
+    }
+]
